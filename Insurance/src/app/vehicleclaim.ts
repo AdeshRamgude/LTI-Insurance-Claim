@@ -5,4 +5,5 @@ export class Vehicleclaim {
     status:string|undefined;
     ticketresolveddate:string|undefined;
     policyno:string|undefined;
+    reason:string|undefined;
 }

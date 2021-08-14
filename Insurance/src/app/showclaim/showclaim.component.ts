@@ -10,20 +10,23 @@ export class ShowclaimComponent implements OnInit {
 
   claims:any;
   vehicleclaim:any;
+  
   constructor(private claimService:ClaimService) { }
 
   ngOnInit(): void {
-    this.claimService.getAllClaims().subscribe((data)=>{
+    this.claimService.getbyuserid(3).subscribe((data)=>{
       console.log(data);
       this.claims=data;
       console.log(this.claims);
     });
 
-    this.claimService.getAllVehicleClaims().subscribe((data)=>{
-      console.log(data);
-      this.vehicleclaim=data;
-      console.log("cm=",this.vehicleclaim);
-     })
+    
+
+    // this.claimService.getAllVehicleClaims().subscribe((data)=>{
+    //   console.log(data);
+    //   this.vehicleclaim=data;
+    //   console.log("cm=",this.vehicleclaim);
+    //  })
   }
 
 }

@@ -5,6 +5,7 @@ export class Claim {
     status:string|undefined;
     ticketresolveddate:string|undefined;
     policyno:string|undefined;
+    reason:string|undefined;
 
     // constructor(claimid:number,
     //     type:string,

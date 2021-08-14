@@ -11,6 +11,7 @@ export class AddvehicleclaimComponent implements OnInit {
 
   cm:any;
   vehicleclaim:Vehicleclaim;
+  
   constructor(private claimService:ClaimService) { 
     this.vehicleclaim=new Vehicleclaim;
   }
@@ -20,7 +21,8 @@ export class AddvehicleclaimComponent implements OnInit {
       console.log(data);
       this.cm=data;
       console.log("cm=",this.cm);
-     })
+     });
+
   }
 
   saveVehicleData(){ 

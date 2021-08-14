@@ -9,6 +9,7 @@
         <th scope="col">Status</th>
         <th scope="col">Ticket resolved date</th>
         <th scope="col">Policy No</th>
+        <th scope="col">Reason</th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
             <td>{{c.status}}</td>
             <td>{{c.ticketresolveddate}}</td>
             <td>{{c.policyno}}</td>
+            <td>{{c.reason}}</td>
         </tr>
 
         <tr *ngFor="let c of vehicleclaim">
@@ -28,6 +30,7 @@
             <td>{{c.status}}</td>
             <td>{{c.ticketresolveddate}}</td>
             <td>{{c.policyno}}</td>
+            <td>{{c.reason}}</td>
         </tr>
     </tbody>
   </table>

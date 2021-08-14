@@ -8,13 +8,16 @@ import { FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddclaimComponent } from './addclaim/addclaim.component';
 import { AddvehicleclaimComponent } from './addvehicleclaim/addvehicleclaim.component';
+import { AdminComponent } from './admin/admin.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ShowclaimComponent,
     AddclaimComponent,
-    AddvehicleclaimComponent
+    AddvehicleclaimComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
