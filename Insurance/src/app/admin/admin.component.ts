@@ -15,6 +15,7 @@ export class AdminComponent implements OnInit {
   statv1:Vehicleclaim;
   cm:any;
   vm:any;
+  cid:number=0;
   constructor(private claimService:ClaimService) { 
     this.stat=new Claim();
     this.stat1=new Claim();
@@ -24,7 +25,7 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.claimService.getAllStatus().subscribe((data)=>{
+    this.claimService.getAllClaim().subscribe((data)=>{
       console.log(data);
       this.cm=data;
       console.log("status:",this.cm);
@@ -47,13 +48,7 @@ export class AdminComponent implements OnInit {
         console.log("st",this.stat1); 
       }
     )
-    // this.stat1.status=this.stat.status;
-    // console.log("stat1",this.stat1);
-    // this.claimService.addStatus(this.stat1).subscribe(
-    //   (data)=>{
-    //     console.log("Return Value from REST"+data); 
-    //   }
-    // )
+  
   }
 
   savedata2()
@@ -65,10 +60,12 @@ export class AdminComponent implements OnInit {
         console.log("Return Value from REST"+data); 
       }
     )
+    alert("data saved");
   }
 
   saveVehicleData(){ 
     console.log("in save",this.statv);
+    //this.cid=this.statv.claimid;
     this.claimService.getbyidvehicle(this.statv.claimid).subscribe(
       (data)=>{
         console.log("Return Value from REST"+data);
@@ -77,22 +74,21 @@ export class AdminComponent implements OnInit {
       }
     )
 
-  //   console.log("in savevehicle",this.statv);
-  //   this.claimService.addVehicleStatus(this.statv).subscribe(
-  //   (data)=>{
-  //     console.log("Return Value from REST"+data); 
-  //   })
-  // alert("data saved");
+    
 }
 
   saveVehicleData2(){ 
-    this.statv1.status=this.statv.status;
-    console.log("stat2",this.statv1);
-    this.claimService.addVehicleStatus1(this.statv1).subscribe(
-      (data)=>{
-        console.log("Return Value from REST"+data); 
-      }
-    )
-  }
+ 
+  console.log("statss",this.statv.status); 
+  this.statv1.status=this.statv.status;
+  console.log("stat2",this.statv1);
+  
+  this.claimService.addVehicleStatus1(this.statv1).subscribe(
+    (data)=>{
+      console.log("Return Value from REST"+data); 
+    }
+  )
+  alert("data saved");
+}
 
 }

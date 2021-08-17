@@ -12,15 +12,26 @@ export class AddclaimComponent implements OnInit {
   claims:Claim;
   cm:any;
   traveluser:any;
+  id1:number|undefined;
   constructor(private claimService:ClaimService) { 
     this.claims=new Claim();
+
+    this.claimService.getHighestUserId().subscribe(
+      (data:any)=>{
+        console.log(data); 
+       // this.id=data.toString();
+       this.id1=data+1;
+        console.log(this.id1);
+        this.claims.claimid=this.id1;
+        console.log("Inside method:"+this.claims.claimid);
+      });
   }
 
   ngOnInit(): void {
-    this.claimService.getAllClaims().subscribe((data)=>{
+    this.claimService.getbyuserid(0).subscribe((data)=>{
       console.log(data);
       this.cm=data;
-      console.log("cm=",this.cm);
+      console.log("cms=",this.cm);
      });
 
      this.claimService.getbyidtraveluser(3).subscribe((data)=>{
@@ -42,3 +53,4 @@ export class AddclaimComponent implements OnInit {
   }
 
 }
+

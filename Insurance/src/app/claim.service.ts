@@ -11,14 +11,14 @@ export class ClaimService {
 
   baseurl:string="http://localhost:9898/insuranceRest/api/";
 
-  getAllClaims()
+  getAllClaim()
   {
     return this.httpClient.get(this.baseurl+"/claim");
   }
 
-  addClaim(claims:any)
+  addClaim(res:any)
   {
-    return this.httpClient.post(this.baseurl+"/claim",claims);
+    return this.httpClient.post(this.baseurl+"/claim",res);
   }
 
   getAllStatus()
@@ -46,6 +46,11 @@ export class ClaimService {
   getbyidvehicle(id:any){
     return this.httpClient.get(this.baseurl+"/admin/vehicleclaim/"+id);
   }
+
+  getbyidvehicle1(id:any){
+    return this.httpClient.get(this.baseurl+"/claim/vehicleclaim/"+id);
+  }
+
   addVehicleStatus(statv:any)
   {
     return this.httpClient.put(this.baseurl+"/admin",statv);
@@ -56,10 +61,24 @@ export class ClaimService {
   }
 
   getbyuserid(id:any){
-    return this.httpClient.get("http://localhost:9898/insuranceRest/api/claim/traveluser/"+id);
+    return this.httpClient.get(this.baseurl+"/claim/"+id);
   }
 
   getbyidtraveluser(id:any){
     return this.httpClient.get(this.baseurl+"/claim/traveluser/"+id);
   }
+
+  getbyidvehicleinsurance(id:any){
+    return this.httpClient.get(this.baseurl+"vehicleinsurance/"+id);
+  }
+
+  getHighestUserId()
+   {
+    return this.httpClient.get(this.baseurl+"/highestid");
+   }
+
+   getHighestUserId1()
+   {
+    return this.httpClient.get(this.baseurl+"/highestid1");
+   }
 }
